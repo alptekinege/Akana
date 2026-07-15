@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kern — Monochrome Design System</title>
+  <title>Akana — Monochrome Design System</title>
   <meta name="color-scheme" content="light dark">
   <script>
     /* FOUC-free theming: apply saved/system theme before first paint. */
     (function () {
       try {
-        var t = localStorage.getItem("kern-theme"); /* 'light' | 'dark' | null */
+        var t = localStorage.getItem("akana-theme"); /* 'light' | 'dark' | null */
         if (t === "light" || t === "dark") {
           document.documentElement.setAttribute("data-theme", t);
         }
@@ -20,7 +20,7 @@
   <link rel="stylesheet" href="assets/tokens.css">
   <link rel="stylesheet" href="assets/components.css">
   <style>
-    .k-header {
+    .ak-header {
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -29,7 +29,7 @@
       border-bottom: var(--border-w) solid var(--border);
       margin-bottom: var(--space-12);
     }
-    .k-brand {
+    .ak-brand {
       display: inline-flex;
       align-items: center;
       gap: var(--space-3);
@@ -39,19 +39,19 @@
       letter-spacing: var(--tracking-tight);
       color: var(--ink);
     }
-    .k-brand .k-mark {
+    .ak-brand .ak-mark {
       display: inline-flex; align-items: center; justify-content: center;
       width: 34px; height: 34px;
       border: var(--border-w) solid var(--ink);
       border-radius: var(--radius-md);
     }
-    .k-theme {
+    .ak-theme {
       display: inline-flex; align-items: center; gap: var(--space-2);
       font-family: var(--font-mono); font-size: var(--fs-xs);
       letter-spacing: var(--tracking-label); text-transform: uppercase;
       color: var(--text-secondary);
     }
-    .k-link {
+    .ak-link {
       display: flex; align-items: center; justify-content: space-between;
       gap: var(--space-4);
       padding: var(--space-5) var(--space-6);
@@ -60,95 +60,95 @@
       text-decoration: none; color: var(--text);
       transition: border-color var(--dur-base) var(--ease), box-shadow var(--dur-base) var(--ease);
     }
-    .k-link:hover { border-color: var(--border-strong); box-shadow: var(--shadow-md); }
-    .k-link__name { font-family: var(--font-display); font-weight: 500; font-size: var(--fs-lg); color: var(--ink); letter-spacing: var(--tracking-tight); }
-    .k-link__desc { color: var(--text-secondary); font-size: var(--fs-sm); }
-    .k-link__go { color: var(--text-muted); }
-    .k-link:hover .k-link__go { color: var(--ink); }
+    .ak-link:hover { border-color: var(--border-strong); box-shadow: var(--shadow-md); }
+    .ak-link__name { font-family: var(--font-display); font-weight: 500; font-size: var(--fs-lg); color: var(--ink); letter-spacing: var(--tracking-tight); }
+    .ak-link__desc { color: var(--text-secondary); font-size: var(--fs-sm); }
+    .ak-link__go { color: var(--text-muted); }
+    .ak-link:hover .ak-link__go { color: var(--ink); }
   </style>
 </head>
-<body class="kern">
-  <main class="k-demo">
-    <header class="k-header">
-      <span class="k-brand">
-        <span class="k-mark"><span class="k-icon" data-icon="grid" data-size="18"></span></span>
-        Kern
+<body class="akana">
+  <main class="ak-demo">
+    <header class="ak-header">
+      <span class="ak-brand">
+        <span class="ak-mark"><span class="ak-icon" data-icon="grid" data-size="18"></span></span>
+        Akana
       </span>
-      <span class="k-row" style="gap: var(--space-2);">
-        <a class="k-btn k-btn--secondary k-btn--sm" href="about.html">
-          <span class="k-icon" data-icon="info"></span> About
+      <span class="ak-row" style="gap: var(--space-2);">
+        <a class="ak-btn ak-btn--secondary ak-btn--sm" href="about.html">
+          <span class="ak-icon" data-icon="info"></span> About
         </a>
-        <button class="k-btn k-btn--secondary k-btn--sm" id="theme-btn" type="button" aria-pressed="false">
-          <span class="k-icon" data-icon="moon"></span> Dark
+        <button class="ak-btn ak-btn--secondary ak-btn--sm" id="theme-btn" type="button" aria-pressed="false">
+          <span class="ak-icon" data-icon="moon"></span> Dark
         </button>
       </span>
     </header>
 
-    <span class="k-label">Design System</span>
+    <span class="ak-label">Design System</span>
     <h1>Monochrome, text-first.</h1>
-    <p class="lead">A clean, minimal interface system built on ink and whitespace. No accent color, no decorative images — hierarchy comes from type, spacing, and small inline icons. Fonts are bundled locally; open any component file directly.</p>
+    <p class="lead">A clean, minimal interface system built on ink and whitespace. No accent color, no decorative images — hierarchy comes from type, spacing, and small inline icons. <strong>Akana</strong> = ak + ana (clarity + source). Fonts are bundled locally; open any component file directly.</p>
 
-    <div class="k-grid" style="margin-top: var(--space-8);">
-      <a class="k-link" href="components/button.html">
-        <span><span class="k-link__name">Button</span><br><span class="k-link__desc">Actions, variants, sizes</span></span>
-        <span class="k-link__go k-icon" data-icon="arrow-right"></span>
+    <div class="ak-grid" style="margin-top: var(--space-8);">
+      <a class="ak-link" href="components/button.html">
+        <span><span class="ak-link__name">Button</span><br><span class="ak-link__desc">Actions, variants, sizes</span></span>
+        <span class="ak-link__go ak-icon" data-icon="arrow-right"></span>
       </a>
-      <a class="k-link" href="components/card.html">
-        <span><span class="k-link__name">Card</span><br><span class="k-link__desc">Grouped content surface</span></span>
-        <span class="k-link__go k-icon" data-icon="arrow-right"></span>
+      <a class="ak-link" href="components/card.html">
+        <span><span class="ak-link__name">Card</span><br><span class="ak-link__desc">Grouped content surface</span></span>
+        <span class="ak-link__go ak-icon" data-icon="arrow-right"></span>
       </a>
-      <a class="k-link" href="components/input.html">
-        <span><span class="k-link__name">Input</span><br><span class="k-link__desc">Label-led fields</span></span>
-        <span class="k-link__go k-icon" data-icon="arrow-right"></span>
+      <a class="ak-link" href="components/input.html">
+        <span><span class="ak-link__name">Input</span><br><span class="ak-link__desc">Label-led fields</span></span>
+        <span class="ak-link__go ak-icon" data-icon="arrow-right"></span>
       </a>
-      <a class="k-link" href="components/badge.html">
-        <span><span class="k-link__name">Badge</span><br><span class="k-link__desc">Status & category markers</span></span>
-        <span class="k-link__go k-icon" data-icon="arrow-right"></span>
+      <a class="ak-link" href="components/badge.html">
+        <span><span class="ak-link__name">Badge</span><br><span class="ak-link__desc">Status & category markers</span></span>
+        <span class="ak-link__go ak-icon" data-icon="arrow-right"></span>
       </a>
-      <a class="k-link" href="components/nav.html">
-        <span><span class="k-link__name">Nav</span><br><span class="k-link__desc">Icon + text navigation</span></span>
-        <span class="k-link__go k-icon" data-icon="arrow-right"></span>
+      <a class="ak-link" href="components/nav.html">
+        <span><span class="ak-link__name">Nav</span><br><span class="ak-link__desc">Icon + text navigation</span></span>
+        <span class="ak-link__go ak-icon" data-icon="arrow-right"></span>
       </a>
-      <a class="k-link" href="components/modal.html">
-        <span><span class="k-link__name">Modal</span><br><span class="k-link__desc">Dialog with focus trap</span></span>
-        <span class="k-link__go k-icon" data-icon="arrow-right"></span>
+      <a class="ak-link" href="components/modal.html">
+        <span><span class="ak-link__name">Modal</span><br><span class="ak-link__desc">Dialog with focus trap</span></span>
+        <span class="ak-link__go ak-icon" data-icon="arrow-right"></span>
       </a>
-      <a class="k-link" href="components/toggle.html">
-        <span><span class="k-link__name">Toggle</span><br><span class="k-link__desc">Switch / on-off control</span></span>
-        <span class="k-link__go k-icon" data-icon="arrow-right"></span>
+      <a class="ak-link" href="components/toggle.html">
+        <span><span class="ak-link__name">Toggle</span><br><span class="ak-link__desc">Switch / on-off control</span></span>
+        <span class="ak-link__go ak-icon" data-icon="arrow-right"></span>
       </a>
-      <a class="k-link" href="components/table.html">
-        <span><span class="k-link__name">Table</span><br><span class="k-link__desc">Sortable data, text-first</span></span>
-        <span class="k-link__go k-icon" data-icon="arrow-right"></span>
+      <a class="ak-link" href="components/table.html">
+        <span><span class="ak-link__name">Table</span><br><span class="ak-link__desc">Sortable data, text-first</span></span>
+        <span class="ak-link__go ak-icon" data-icon="arrow-right"></span>
       </a>
-      <a class="k-link" href="components/checkbox.html">
-        <span><span class="k-link__name">Checkbox</span><br><span class="k-link__desc">Multi-select, ink check</span></span>
-        <span class="k-link__go k-icon" data-icon="arrow-right"></span>
+      <a class="ak-link" href="components/checkbox.html">
+        <span><span class="ak-link__name">Checkbox</span><br><span class="ak-link__desc">Multi-select, ink check</span></span>
+        <span class="ak-link__go ak-icon" data-icon="arrow-right"></span>
       </a>
-      <a class="k-link" href="components/radio.html">
-        <span><span class="k-link__name">Radio</span><br><span class="k-link__desc">Single choice group</span></span>
-        <span class="k-link__go k-icon" data-icon="arrow-right"></span>
+      <a class="ak-link" href="components/radio.html">
+        <span><span class="ak-link__name">Radio</span><br><span class="ak-link__desc">Single choice group</span></span>
+        <span class="ak-link__go ak-icon" data-icon="arrow-right"></span>
       </a>
-      <a class="k-link" href="components/select.html">
-        <span><span class="k-link__name">Select</span><br><span class="k-link__desc">Native dropdown</span></span>
-        <span class="k-link__go k-icon" data-icon="arrow-right"></span>
+      <a class="ak-link" href="components/select.html">
+        <span><span class="ak-link__name">Select</span><br><span class="ak-link__desc">Native dropdown</span></span>
+        <span class="ak-link__go ak-icon" data-icon="arrow-right"></span>
       </a>
-      <a class="k-link" href="components/textarea.html">
-        <span><span class="k-link__name">Textarea</span><br><span class="k-link__desc">Multi-line field</span></span>
-        <span class="k-link__go k-icon" data-icon="arrow-right"></span>
+      <a class="ak-link" href="components/textarea.html">
+        <span><span class="ak-link__name">Textarea</span><br><span class="ak-link__desc">Multi-line field</span></span>
+        <span class="ak-link__go ak-icon" data-icon="arrow-right"></span>
       </a>
-      <a class="k-link" href="components/tabs.html">
-        <span><span class="k-link__name">Tabs</span><br><span class="k-link__desc">In-page panels</span></span>
-        <span class="k-link__go k-icon" data-icon="arrow-right"></span>
+      <a class="ak-link" href="components/tabs.html">
+        <span><span class="ak-link__name">Tabs</span><br><span class="ak-link__desc">In-page panels</span></span>
+        <span class="ak-link__go ak-icon" data-icon="arrow-right"></span>
       </a>
-      <a class="k-link" href="components/alert.html">
-        <span><span class="k-link__name">Alert</span><br><span class="k-link__desc">Feedback without hue</span></span>
-        <span class="k-link__go k-icon" data-icon="arrow-right"></span>
+      <a class="ak-link" href="components/alert.html">
+        <span><span class="ak-link__name">Alert</span><br><span class="ak-link__desc">Feedback without hue</span></span>
+        <span class="ak-link__go ak-icon" data-icon="arrow-right"></span>
       </a>
     </div>
 
     <section style="margin-top: var(--space-16);">
-      <div class="k-section-title">Type specimen</div>
+      <div class="ak-section-title">Type specimen</div>
       <div style="font-family: var(--font-display); font-weight: 700; font-size: var(--fs-4xl); letter-spacing: var(--tracking-tight); color: var(--ink); line-height: var(--lh-tight);">Display / IBM Plex Sans</div>
       <div style="font-family: var(--font-ui); font-weight: 500; font-size: var(--fs-2xl); color: var(--text); margin-top: var(--space-4);">UI / IBM Plex Sans</div>
       <div style="font-family: var(--font-mono); font-weight: 500; font-size: var(--fs-lg); color: var(--text-secondary); margin-top: var(--space-3);">META / IBM PLEX MONO</div>
@@ -160,7 +160,7 @@
   <script>
     (function () {
       var btn = document.getElementById('theme-btn');
-      var icon = btn.querySelector('.k-icon');
+      var icon = btn.querySelector('.ak-icon');
       var label = btn.lastChild;
       function apply(theme) {
         if (theme) {
@@ -181,7 +181,7 @@
           || (!document.documentElement.getAttribute('data-theme')
               && window.matchMedia('(prefers-color-scheme: dark)').matches);
         saved = isDark ? 'light' : 'dark';
-        try { localStorage.setItem('kern-theme', saved); } catch (e) {}
+        try { localStorage.setItem('akana-theme', saved); } catch (e) {}
         apply(saved);
       });
       apply(saved);

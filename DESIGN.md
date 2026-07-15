@@ -1,7 +1,7 @@
 ---
-version: 0.3.0
-name: Kern
-description: Monochrome, text-first minimalist design system. Ink-on-paper, icon+text driven, no accent color, bundled IBM Plex fonts (SIL OFL 1.1).
+version: 0.4.0
+name: Akana
+description: Monochrome, text-first design system (Ak + Ana). Ink-on-paper, no accent color, bundled IBM Plex (SIL OFL 1.1).
 colors:
   # --- Primitive gray ramp (theme-agnostic raw values) ---
   gray-0: "#FFFFFF"
@@ -101,19 +101,21 @@ components:
 
 ## Overview
 
-Kern is a monochrome, text-first design system. It deliberately uses **no accent
-color** — emphasis is created through typographic hierarchy, whitespace, and a
-single ink tone against paper-white (or its dark-mode inverse). The goal is a calm,
-editorial interface that reads like a well-set document rather than a dashboard.
+**Akana** (ak + ana) is a monochrome, text-first design system. The name
+joins Turkish *ak* (clarity, pure white) and *ana* (source, mother/root) —
+a calm, ink-on-paper language without accent color. Emphasis is created through
+typographic hierarchy, whitespace, and a single ink tone against paper-white
+(or its dark-mode inverse). The goal is a calm, editorial interface that reads
+like a well-set document rather than a dashboard.
 
 Images are avoided by design. Where a modern UI might reach for illustration or
-photography, Kern uses small 1px-stroke inline SVG icons (bundled in
+photography, Akana uses small 1px-stroke inline SVG icons (bundled in
 `assets/icons.js`) paired with text. The result is lightweight, themeable, and
 fully offline.
 
 ## Colors
 
-Kern's palette is a single ink ramp plus neutral surfaces. There is **no hue**:
+Akana's palette is a single ink ramp plus neutral surfaces. There is **no hue**:
 
 - **Ink (#0A0A0A):** The only "strong" tone. Used for headlines, primary
   buttons, borders that matter, and active states.
@@ -146,7 +148,7 @@ is low by default — whitespace is a feature, not wasted space.
 
 ## Elevation & Depth
 
-Kern avoids shadows almost entirely. Separation comes from 1px borders and
+Akana avoids shadows almost entirely. Separation comes from 1px borders and
 surface fills. The only shadows (`--shadow-sm/md`) are subtle and reserved for
 hover/focus affordance. There is no layering color.
 
@@ -158,7 +160,7 @@ The **primitive gray ramp stays constant**; only the semantic layer is re-bound.
 
 ## Accessibility
 
-Kern is monochrome, so contrast is earned with the gray ramp, not hue.
+Akana is monochrome, so contrast is earned with the gray ramp, not hue.
 
 - **Contrast (WCAG 2.1, measured sRGB):** body/secondary text ≥ 4.5:1
   (AA); large display text ≥ 3:1; UI borders & focus rings ≥ 3:1 (AA
@@ -205,8 +207,8 @@ sharing `assets/tokens.css`, `assets/components.css`, `assets/fonts.css`, and
 - **alert** — feedback without hue (default / strong rail / solid invert).
   `components/alert.html`
 
-Icons: mount with `<span class="k-icon" data-icon="name"></span>` or call
-`kern.icon('name')`. Available names are returned by `kern.icons()`.
+Icons: mount with `<span class="ak-icon" data-icon="name"></span>` or call
+`akana.icon('name')`. Available names are returned by `akana.icons()`.
 
 ## Do's and Don'ts
 

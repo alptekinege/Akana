@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kern — About the system</title>
+  <title>Akana — About the system</title>
   <meta name="color-scheme" content="light dark">
   <script>
     (function () {
       try {
-        var t = localStorage.getItem("kern-theme");
+        var t = localStorage.getItem("akana-theme");
         if (t === "light" || t === "dark") {
           document.documentElement.setAttribute("data-theme", t);
         }
@@ -19,173 +19,173 @@
   <link rel="stylesheet" href="assets/tokens.css">
   <link rel="stylesheet" href="assets/components.css">
   <style>
-    .k-header {
+    .ak-header {
       display: flex; align-items: center; justify-content: space-between;
       gap: var(--space-4);
       padding-bottom: var(--space-8);
       border-bottom: var(--border-w) solid var(--border);
       margin-bottom: var(--space-12);
     }
-    .k-brand {
+    .ak-brand {
       display: inline-flex; align-items: center; gap: var(--space-3);
       font-family: var(--font-display); font-weight: 700;
       font-size: var(--fs-xl); letter-spacing: var(--tracking-tight);
       color: var(--ink); text-decoration: none;
     }
-    .k-brand .k-mark {
+    .ak-brand .ak-mark {
       display: inline-flex; align-items: center; justify-content: center;
       width: 34px; height: 34px;
       border: var(--border-w) solid var(--ink); border-radius: var(--radius-md);
     }
-    .k-back { color: var(--text-secondary); }
-    .k-back:hover { color: var(--ink); }
-    .k-part {
+    .ak-back { color: var(--text-secondary); }
+    .ak-back:hover { color: var(--ink); }
+    .ak-part {
       border: var(--border-w) solid var(--border);
       border-radius: var(--radius-lg);
       padding: var(--space-6);
       transition: border-color var(--dur-base) var(--ease), box-shadow var(--dur-base) var(--ease);
     }
-    .k-part:hover { border-color: var(--border-strong); box-shadow: var(--shadow-md); }
-    .k-part__icon {
+    .ak-part:hover { border-color: var(--border-strong); box-shadow: var(--shadow-md); }
+    .ak-part__icon {
       display: inline-flex; align-items: center; justify-content: center;
       width: 38px; height: 38px; margin-bottom: var(--space-4);
       border: var(--border-w) solid var(--border); border-radius: var(--radius-md);
       color: var(--ink);
     }
-    .k-part__title {
+    .ak-part__title {
       font-family: var(--font-display); font-weight: 500; font-size: var(--fs-lg);
       letter-spacing: var(--tracking-tight); margin: 0 0 var(--space-2); color: var(--ink);
     }
-    .k-part__body { margin: 0; color: var(--text-secondary); font-size: var(--fs-sm); }
-    .k-part a { color: var(--ink); }
-    .k-grid { display: grid; gap: var(--space-4); grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
+    .ak-part__body { margin: 0; color: var(--text-secondary); font-size: var(--fs-sm); }
+    .ak-part a { color: var(--ink); }
+    .ak-grid { display: grid; gap: var(--space-4); grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
   </style>
 </head>
-<body class="kern">
-  <main class="k-demo">
-    <header class="k-header">
-      <a class="k-brand" href="index.html">
-        <span class="k-mark"><span class="k-icon" data-icon="grid" data-size="18"></span></span>
-        Kern
+<body class="akana">
+  <main class="ak-demo">
+    <header class="ak-header">
+      <a class="ak-brand" href="index.html">
+        <span class="ak-mark"><span class="ak-icon" data-icon="grid" data-size="18"></span></span>
+        Akana
       </a>
-      <span class="k-row" style="gap: var(--space-2);">
-        <a class="k-btn k-btn--secondary k-btn--sm k-back" href="TOKENS.md">
-          <span class="k-icon" data-icon="tag"></span> Tokens
+      <span class="ak-row" style="gap: var(--space-2);">
+        <a class="ak-btn ak-btn--secondary ak-btn--sm ak-back" href="TOKENS.md">
+          <span class="ak-icon" data-icon="tag"></span> Tokens
         </a>
-        <a class="k-btn k-btn--secondary k-btn--sm k-back" href="index.html">
-          <span class="k-icon" data-icon="arrow-left"></span> Gallery
+        <a class="ak-btn ak-btn--secondary ak-btn--sm ak-back" href="index.html">
+          <span class="ak-icon" data-icon="arrow-left"></span> Gallery
         </a>
       </span>
     </header>
 
-    <span class="k-label">About</span>
+    <span class="ak-label">About</span>
     <h1>The system's parts.</h1>
-    <p class="lead">Kern is small on purpose. Three foundations do the heavy lifting; components put them to use. Everything is token-driven and offline.</p>
+    <p class="lead">Akana is small on purpose — <em>ak</em> (clarity) + <em>ana</em> (source). Three foundations do the heavy lifting; components put them to use. Everything is token-driven and offline.</p>
 
     <section style="margin-top: var(--space-12);">
-      <div class="k-section-title">Foundations</div>
-      <div class="k-grid">
-        <article class="k-part">
-          <span class="k-part__icon"><span class="k-icon" data-icon="tag"></span></span>
-          <h3 class="k-part__title">Tokens</h3>
-          <p class="k-part__body"><code>tokens.css</code> holds the monochrome palette, type scale, spacing, radii, and motion. The single source of truth — components never hardcode values.</p>
+      <div class="ak-section-title">Foundations</div>
+      <div class="ak-grid">
+        <article class="ak-part">
+          <span class="ak-part__icon"><span class="ak-icon" data-icon="tag"></span></span>
+          <h3 class="ak-part__title">Tokens</h3>
+          <p class="ak-part__body"><code>tokens.css</code> holds the monochrome palette, type scale, spacing, radii, and motion. The single source of truth — components never hardcode values.</p>
         </article>
-        <article class="k-part">
-          <span class="k-part__icon"><span class="k-icon" data-icon="document"></span></span>
-          <h3 class="k-part__title">Fonts</h3>
-          <p class="k-part__body">IBM Plex Sans + IBM Plex Mono (SIL OFL 1.1) — bundled as woff2 in <code>assets/fonts/</code> with <code>OFL-IBM-Plex.txt</code>. No CDN. See <a href="FONTS.md">FONTS.md</a>.</p>
+        <article class="ak-part">
+          <span class="ak-part__icon"><span class="ak-icon" data-icon="document"></span></span>
+          <h3 class="ak-part__title">Fonts</h3>
+          <p class="ak-part__body">IBM Plex Sans + IBM Plex Mono (SIL OFL 1.1) — bundled as woff2 in <code>assets/fonts/</code> with <code>OFL-IBM-Plex.txt</code>. No CDN. See <a href="FONTS.md">FONTS.md</a>.</p>
         </article>
-        <article class="k-part">
-          <span class="k-part__icon"><span class="k-icon" data-icon="star"></span></span>
-          <h3 class="k-part__title">Icons</h3>
-          <p class="k-part__body"><code>icons.js</code> is an inline SVG set (1px stroke, currentColor). Use <code>&lt;span class="k-icon" data-icon="name"&gt;</code> — no image files, ever.</p>
+        <article class="ak-part">
+          <span class="ak-part__icon"><span class="ak-icon" data-icon="star"></span></span>
+          <h3 class="ak-part__title">Icons</h3>
+          <p class="ak-part__body"><code>icons.js</code> is an inline SVG set (1px stroke, currentColor). Use <code>&lt;span class="ak-icon" data-icon="name"&gt;</code> — no image files, ever.</p>
         </article>
       </div>
     </section>
 
     <section style="margin-top: var(--space-12);">
-      <div class="k-section-title">Components</div>
-      <div class="k-grid">
-        <article class="k-part">
-          <span class="k-part__icon"><span class="k-icon" data-icon="plus"></span></span>
-          <h3 class="k-part__title"><a href="components/button.html">Button</a></h3>
-          <p class="k-part__body">Primary, secondary, ghost. Sizes sm/md/lg. Inline or icon-only.</p>
+      <div class="ak-section-title">Components</div>
+      <div class="ak-grid">
+        <article class="ak-part">
+          <span class="ak-part__icon"><span class="ak-icon" data-icon="plus"></span></span>
+          <h3 class="ak-part__title"><a href="components/button.html">Button</a></h3>
+          <p class="ak-part__body">Primary, secondary, ghost. Sizes sm/md/lg. Inline or icon-only.</p>
         </article>
-        <article class="k-part">
-          <span class="k-part__icon"><span class="k-icon" data-icon="grid"></span></span>
-          <h3 class="k-part__title"><a href="components/card.html">Card</a></h3>
-          <p class="k-part__body">Icon mark + title + body + text action. A calm surface for grouped content.</p>
+        <article class="ak-part">
+          <span class="ak-part__icon"><span class="ak-icon" data-icon="grid"></span></span>
+          <h3 class="ak-part__title"><a href="components/card.html">Card</a></h3>
+          <p class="ak-part__body">Icon mark + title + body + text action. A calm surface for grouped content.</p>
         </article>
-        <article class="k-part">
-          <span class="k-part__icon"><span class="k-icon" data-icon="mail"></span></span>
-          <h3 class="k-part__title"><a href="components/input.html">Input</a></h3>
-          <p class="k-part__body">Label-led fields with leading icon, helper text, and an error state.</p>
+        <article class="ak-part">
+          <span class="ak-part__icon"><span class="ak-icon" data-icon="mail"></span></span>
+          <h3 class="ak-part__title"><a href="components/input.html">Input</a></h3>
+          <p class="ak-part__body">Label-led fields with leading icon, helper text, and an error state.</p>
         </article>
-        <article class="k-part">
-          <span class="k-part__icon"><span class="k-icon" data-icon="check"></span></span>
-          <h3 class="k-part__title"><a href="components/badge.html">Badge</a></h3>
-          <p class="k-part__body">Outlined status markers; solid only when one item must stand out.</p>
+        <article class="ak-part">
+          <span class="ak-part__icon"><span class="ak-icon" data-icon="check"></span></span>
+          <h3 class="ak-part__title"><a href="components/badge.html">Badge</a></h3>
+          <p class="ak-part__body">Outlined status markers; solid only when one item must stand out.</p>
         </article>
-        <article class="k-part">
-          <span class="k-part__icon"><span class="k-icon" data-icon="menu"></span></span>
-          <h3 class="k-part__title"><a href="components/nav.html">Nav</a></h3>
-          <p class="k-part__body">Icon + text navigation. Active state marked by surface, not color.</p>
+        <article class="ak-part">
+          <span class="ak-part__icon"><span class="ak-icon" data-icon="menu"></span></span>
+          <h3 class="ak-part__title"><a href="components/nav.html">Nav</a></h3>
+          <p class="ak-part__body">Icon + text navigation. Active state marked by surface, not color.</p>
         </article>
-        <article class="k-part">
-          <span class="k-part__icon"><span class="k-icon" data-icon="grid"></span></span>
-          <h3 class="k-part__title"><a href="components/modal.html">Modal</a></h3>
-          <p class="k-part__body">Dialog with focus trap, Escape to close, focus restore.</p>
+        <article class="ak-part">
+          <span class="ak-part__icon"><span class="ak-icon" data-icon="grid"></span></span>
+          <h3 class="ak-part__title"><a href="components/modal.html">Modal</a></h3>
+          <p class="ak-part__body">Dialog with focus trap, Escape to close, focus restore.</p>
         </article>
-        <article class="k-part">
-          <span class="k-part__icon"><span class="k-icon" data-icon="check"></span></span>
-          <h3 class="k-part__title"><a href="components/toggle.html">Toggle</a></h3>
-          <p class="k-part__body">On/off switch via <code>role="switch"</code>. State by motion.</p>
+        <article class="ak-part">
+          <span class="ak-part__icon"><span class="ak-icon" data-icon="check"></span></span>
+          <h3 class="ak-part__title"><a href="components/toggle.html">Toggle</a></h3>
+          <p class="ak-part__body">On/off switch via <code>role="switch"</code>. State by motion.</p>
         </article>
-        <article class="k-part">
-          <span class="k-part__icon"><span class="k-icon" data-icon="document"></span></span>
-          <h3 class="k-part__title"><a href="components/table.html">Table</a></h3>
-          <p class="k-part__body">Sortable data, <code>aria-sort</code> columns. Text, not color.</p>
+        <article class="ak-part">
+          <span class="ak-part__icon"><span class="ak-icon" data-icon="document"></span></span>
+          <h3 class="ak-part__title"><a href="components/table.html">Table</a></h3>
+          <p class="ak-part__body">Sortable data, <code>aria-sort</code> columns. Text, not color.</p>
         </article>
-        <article class="k-part">
-          <span class="k-part__icon"><span class="k-icon" data-icon="check"></span></span>
-          <h3 class="k-part__title"><a href="components/checkbox.html">Checkbox</a></h3>
-          <p class="k-part__body">Multi-select. Ink fill + check mark. Native input.</p>
+        <article class="ak-part">
+          <span class="ak-part__icon"><span class="ak-icon" data-icon="check"></span></span>
+          <h3 class="ak-part__title"><a href="components/checkbox.html">Checkbox</a></h3>
+          <p class="ak-part__body">Multi-select. Ink fill + check mark. Native input.</p>
         </article>
-        <article class="k-part">
-          <span class="k-part__icon"><span class="k-icon" data-icon="check"></span></span>
-          <h3 class="k-part__title"><a href="components/radio.html">Radio</a></h3>
-          <p class="k-part__body">Single choice. Ink ring. Native radio group.</p>
+        <article class="ak-part">
+          <span class="ak-part__icon"><span class="ak-icon" data-icon="check"></span></span>
+          <h3 class="ak-part__title"><a href="components/radio.html">Radio</a></h3>
+          <p class="ak-part__body">Single choice. Ink ring. Native radio group.</p>
         </article>
-        <article class="k-part">
-          <span class="k-part__icon"><span class="k-icon" data-icon="chevron-down"></span></span>
-          <h3 class="k-part__title"><a href="components/select.html">Select</a></h3>
-          <p class="k-part__body">Native dropdown with monochrome chevron.</p>
+        <article class="ak-part">
+          <span class="ak-part__icon"><span class="ak-icon" data-icon="chevron-down"></span></span>
+          <h3 class="ak-part__title"><a href="components/select.html">Select</a></h3>
+          <p class="ak-part__body">Native dropdown with monochrome chevron.</p>
         </article>
-        <article class="k-part">
-          <span class="k-part__icon"><span class="k-icon" data-icon="document"></span></span>
-          <h3 class="k-part__title"><a href="components/textarea.html">Textarea</a></h3>
-          <p class="k-part__body">Multi-line field. Same focus language as input.</p>
+        <article class="ak-part">
+          <span class="ak-part__icon"><span class="ak-icon" data-icon="document"></span></span>
+          <h3 class="ak-part__title"><a href="components/textarea.html">Textarea</a></h3>
+          <p class="ak-part__body">Multi-line field. Same focus language as input.</p>
         </article>
-        <article class="k-part">
-          <span class="k-part__icon"><span class="k-icon" data-icon="menu"></span></span>
-          <h3 class="k-part__title"><a href="components/tabs.html">Tabs</a></h3>
-          <p class="k-part__body">In-page panels. Active = ink underline. Arrow keys.</p>
+        <article class="ak-part">
+          <span class="ak-part__icon"><span class="ak-icon" data-icon="menu"></span></span>
+          <h3 class="ak-part__title"><a href="components/tabs.html">Tabs</a></h3>
+          <p class="ak-part__body">In-page panels. Active = ink underline. Arrow keys.</p>
         </article>
-        <article class="k-part">
-          <span class="k-part__icon"><span class="k-icon" data-icon="warning"></span></span>
-          <h3 class="k-part__title"><a href="components/alert.html">Alert</a></h3>
-          <p class="k-part__body">Feedback without hue — default, strong rail, solid.</p>
+        <article class="ak-part">
+          <span class="ak-part__icon"><span class="ak-icon" data-icon="warning"></span></span>
+          <h3 class="ak-part__title"><a href="components/alert.html">Alert</a></h3>
+          <p class="ak-part__body">Feedback without hue — default, strong rail, solid.</p>
         </article>
       </div>
     </section>
 
     <section style="margin-top: var(--space-16);">
-      <div class="k-section-title">Principles</div>
-      <div class="k-stack" style="max-width: 60ch; gap: var(--space-4);">
-        <p class="k-part__body"><strong style="color:var(--ink)">Monochrome.</strong> One ink ramp. State is expressed through weight and border, never hue.</p>
-        <p class="k-part__body"><strong style="color:var(--ink)">Text-first.</strong> Type and spacing carry hierarchy. Icons assist scanning; they don't decorate.</p>
-        <p class="k-part__body"><strong style="color:var(--ink)">No images.</strong> Zero decorative imagery. Everything is vector, text, or whitespace.</p>
-        <p class="k-part__body"><strong style="color:var(--ink)">Offline.</strong> Fonts and icons ship with the repo. No network calls on render.</p>
+      <div class="ak-section-title">Principles</div>
+      <div class="ak-stack" style="max-width: 60ch; gap: var(--space-4);">
+        <p class="ak-part__body"><strong style="color:var(--ink)">Monochrome.</strong> One ink ramp. State is expressed through weight and border, never hue.</p>
+        <p class="ak-part__body"><strong style="color:var(--ink)">Text-first.</strong> Type and spacing carry hierarchy. Icons assist scanning; they don't decorate.</p>
+        <p class="ak-part__body"><strong style="color:var(--ink)">No images.</strong> Zero decorative imagery. Everything is vector, text, or whitespace.</p>
+        <p class="ak-part__body"><strong style="color:var(--ink)">Offline.</strong> Fonts and icons ship with the repo. No network calls on render.</p>
       </div>
     </section>
   </main>

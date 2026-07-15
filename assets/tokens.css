@@ -1,5 +1,5 @@
 /* ============================================================
-   Kern — monochrome design tokens (3-layer model)
+   Akana — monochrome design tokens (3-layer model)
    Layer 1  primitive  : raw gray ramp + fonts + raw scale (meaningless)
    Layer 2  semantic   : intent — what a value MEANS (theme-bound)
    Layer 3  component  : per-component overrides (added as needed)
@@ -9,7 +9,7 @@
 
 :root {
   /* ---------- Layer 1: PRIMITIVE (raw, theme-agnostic) ---------- */
-  /* Gray ramp — the only "colors" in Kern. */
+  /* Gray ramp — the only "colors" in Akana. */
   --gray-0:   #ffffff;
   --gray-50:  #fafafa;
   --gray-100: #f2f2f2;

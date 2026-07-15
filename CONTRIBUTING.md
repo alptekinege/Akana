@@ -1,6 +1,6 @@
-# Contributing to Kern
+# Contributing to Akana
 
-Kern is intentionally small: a **zero-build, offline, monochrome** design system.
+Akana is intentionally small: a **zero-build, offline, monochrome** design system.
 Keep it that way. This guide covers the two things you'll extend: **components**
 and **tokens**.
 
@@ -28,11 +28,11 @@ Write it **one by one**, each in its own file under `components/`.
    ```html
    <script src="../assets/icons.js"></script>
    ```
-3. Put `class="kern"` on `<body>`.
+3. Put `class="akana"` on `<body>`.
 4. Build with **semantic tokens** (`--bg`, `--surface`, `--text`, `--ink`,
    `--border`, `--space-*`, `--fs-*`). Never hardcode a `--gray-*` primitive or
    a raw color/spacing value in a component.
-5. Add icons with `<span class="k-icon" data-icon="name"></span>`. For an
+5. Add icons with `<span class="ak-icon" data-icon="name"></span>`. For an
    **icon-only button**, set `aria-label` on the `<button>`; `icons.js` will
    keep the icon exposed to screen readers.
 6. Implement real states (hover / focus / disabled / active). The global
@@ -60,7 +60,7 @@ Add these next, in order:
 - **Dark mode?** Re-bind the semantic layer only — never the primitive ramp.
 
 Do **not** introduce a build pipeline (Style Dictionary / Tokens Studio /
-Tailwind). Kern is single-platform web; CSS custom properties are the runtime layer.
+Tailwind). Akana is single-platform web; CSS custom properties are the runtime layer.
 
 ## Versioning
 

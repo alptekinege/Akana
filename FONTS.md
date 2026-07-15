@@ -1,6 +1,6 @@
 # Fonts — licenses & attribution
 
-Kern bundles fonts **offline** as woff2 under `assets/fonts/`.
+Akana bundles fonts **offline** as woff2 under `assets/fonts/`.
 There is **no** Google Fonts `<link>` or CDN dependency at runtime.
 
 ## Active stack (v0.3+)

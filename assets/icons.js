@@ -1,9 +1,9 @@
 /* ============================================================
-   Kern — icons.js
+   Akana — icons.js
    Inline SVG icon set. Text-first: icons are small, 1px-stroke,
    currentColor. No image files, no external requests.
-   Use:  <span class="k-icon" data-icon="search"></span>
-         or  kern.icon('arrow-right')  -> SVG string
+   Use:  <span class="ak-icon" data-icon="search"></span>
+         or  akana.icon('arrow-right')  -> SVG string
    ============================================================ */
 (function (global) {
   "use strict";
@@ -39,7 +39,7 @@
     if (!body) return "";
     var s = size || 20;
     return (
-      '<svg class="k-svg" width="' + s + '" height="' + s +
+      '<svg class="ak-svg" width="' + s + '" height="' + s +
       '" viewBox="0 0 24 24" fill="none" stroke="currentColor" ' +
       'stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" ' +
       'aria-hidden="true" focusable="false">' + body + "</svg>"
@@ -51,9 +51,9 @@
     var els = root.querySelectorAll("[data-icon]");
     for (var i = 0; i < els.length; i++) {
       var el = els[i];
-      if (el.dataset.kernIconDone) continue;
+      if (el.dataset.akanaIconDone) continue;
       var s = parseInt(el.getAttribute("data-size"), 10) || 20;
-      el.classList.add("k-icon");
+      el.classList.add("ak-icon");
       // Decorative by default. If the caller set aria-label (icon-only
       // button), leave it exposed; otherwise hide from screen readers.
       if (el.getAttribute("aria-label")) {
@@ -62,11 +62,11 @@
         el.setAttribute("aria-hidden", "true");
       }
       el.innerHTML = svg(el.getAttribute("data-icon"), s);
-      el.dataset.kernIconDone = "1";
+      el.dataset.akanaIconDone = "1";
     }
   }
 
-  global.kern = {
+  global.akana = {
     icons: function () { return Object.keys(P); },
     icon: svg,
     mount: mount

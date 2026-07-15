@@ -1,8 +1,8 @@
-# Design Systems — Derin Araştırma Raporu (Kern)
+# Design Systems — Derin Araştırma Raporu (Akana)
 
 **Tarih:** 2026-07-15  
 **Yöntem:** research-prism (çok turlu arama + birincil kaynak + sentez)  
-**Kapsam:** SQ1 tarih · SQ2 felsefe · SQ3 UX etkililiği · SQ4 token mimarisi · SQ5 font lisans · SQ6 Kern çıkarımları
+**Kapsam:** SQ1 tarih · SQ2 felsefe · SQ3 UX etkililiği · SQ4 token mimarisi · SQ5 font lisans · SQ6 Akana çıkarımları
 
 ---
 
@@ -20,7 +20,7 @@ Kanıtı en güçlü sistemler:
 | **Carbon / Polaris / Spectrum** | Kurumsal ölçek + design+code parity | B+ |
 | **Radix / shadcn** | Erişilebilir primitifler + composition; dev DX | B+ |
 
-**Kern’in pozisyonu:** Monochrome, text-first, zero-build, 3-katman CSS token — endüstri token standardı ve GOV.UK “simple + accessible” hattıyla **uyumlu**. Accent/color-driven Material/Fluent’den bilinçli sapıyor; bu sapma, Swiss/editorial minimal ve GOV.UK “be consistent, not uniform” ile desteklenir.
+**Akana’in pozisyonu:** Monochrome, text-first, zero-build, 3-katman CSS token — endüstri token standardı ve GOV.UK “simple + accessible” hattıyla **uyumlu**. Accent/color-driven Material/Fluent’den bilinçli sapıyor; bu sapma, Swiss/editorial minimal ve GOV.UK “be consistent, not uniform” ile desteklenir.
 
 **Font sonucu:** Mevcut üç aile (Space Grotesk, Inter, JetBrains Mono) **hepsi SIL OFL 1.1**. “Daha net lisans” sorunu lisans belirsizliği değil — **repoda lisans metinlerinin ve atıf dosyalarının olmaması**.
 
@@ -37,15 +37,15 @@ Kanıtı en güçlü sistemler:
 | ~2018– | **Design tokens / DTCG** | Platform-agnostic kararlar | JSON tokens → transform |
 | ~2020– | **Radix, Headless UI, shadcn/ui** | A11y + composition, framework-agnostic primitives | Code-first unstyled + examples |
 
-**Material prensipleri (resmi):** (1) Material is the metaphor, (2) Bold/graphic/intentional, (3) Motion provides meaning. Kern **1 ve 3’ü bilinçli düşük tutar** (gölge/motion minimal); **2’yi tipografi+grid ile** alır.
+**Material prensipleri (resmi):** (1) Material is the metaphor, (2) Bold/graphic/intentional, (3) Motion provides meaning. Akana **1 ve 3’ü bilinçli düşük tutar** (gölge/motion minimal); **2’yi tipografi+grid ile** alır.
 
-**Atomic Design:** Kimyasal metafor — atomlar (label, icon, input) moleküllere (form field), organizmalara (header), şablonlara ve sayfalara birleşir. Kern’in “bir dosya = bir component” kuralı **atom/molecule** seviyesine oturur; page-level pattern galerisi zayıf (bilinçli MVP).
+**Atomic Design:** Kimyasal metafor — atomlar (label, icon, input) moleküllere (form field), organizmalara (header), şablonlara ve sayfalara birleşir. Akana’in “bir dosya = bir component” kuralı **atom/molecule** seviyesine oturur; page-level pattern galerisi zayıf (bilinçli MVP).
 
 ---
 
 ## 3. Felsefeler (SQ2)
 
-| Felsefe | Çözdüğü problem | Güç | Başarısızlık modu | Kern |
+| Felsefe | Çözdüğü problem | Güç | Başarısızlık modu | Akana |
 |---------|-----------------|-----|-------------------|------|
 | **Atomic / modular** | Parça-bütün tutarlılığı | Ortak dil, reuse | Over-taxonomy (her şey atom) | Uyumlu |
 | **Token-first (prim→sem→comp)** | Hardcode drift, tema | Tek kaynak, dark mode | Aşırı component token | **Zaten var** |
@@ -82,7 +82,7 @@ Enforcer: kullanım, katkı, çatışma çözümü.
 Component adoption count, time-to-ship, design/dev ticket reduction, a11y audit regression, visual consistency score.  
 (ProductBoard vb. adoption tracking — B seviye blog kanıtı.)
 
-**Kern için UX başarı kriteri (ölçülebilir, küçük ölçek):**
+**Akana için UX başarı kriteri (ölçülebilir, küçük ölçek):**
 1. Tüm interaktif elemanlarda `:focus-visible`
 2. Light+dark’ta metin ≥4.5:1, border-strong ≥3:1
 3. JS kapalıyken içerik okunabilir (progressive enhancement)
@@ -101,9 +101,9 @@ Component adoption count, time-to-ship, design/dev ticket reduction, a11y audit 
 2. **Semantic** — niyet (`--text`, `--border`, `--bg`)
 3. **Component** — sadece gerekince (`--button-bg`)
 
-**Tokens ≠ CSS variables:** Token abstract karar; CSS var web implementasyonu. Multi-platform’da Style Dictionary; **tek platform web + zero-build’de pure CSS var yeterli** (Kern doğru seçim).
+**Tokens ≠ CSS variables:** Token abstract karar; CSS var web implementasyonu. Multi-platform’da Style Dictionary; **tek platform web + zero-build’de pure CSS var yeterli** (Akana doğru seçim).
 
-**Dark mode:** Primitive sabit; **yalnızca semantic re-bind** — Kern zaten böyle.
+**Dark mode:** Primitive sabit; **yalnızca semantic re-bind** — Akana zaten böyle.
 
 ---
 
@@ -120,7 +120,7 @@ Component adoption count, time-to-ship, design/dev ticket reduction, a11y audit 
 
 **OFL şartı (ortak):** Font yazılımı tek başına satılamaz; **bundle ile birlikte lisans metni** kopyalanmalı; türetilmiş isimde reserved name yasak.
 
-**Kern gap:** `assets/fonts/` woff2 var, **OFL metni / FONTS.md / atıf yok**.
+**Akana gap:** `assets/fonts/` woff2 var, **OFL metni / FONTS.md / atıf yok**.
 
 **Öneri (netlik sıralı):**
 1. **P0 — Dokümantasyon (zorunlu):** `assets/fonts/LICENSE-*.txt` + `FONTS.md` (copyright + upstream URL + OFL). Mevcut trio kalır.
@@ -138,12 +138,12 @@ Component adoption count, time-to-ship, design/dev ticket reduction, a11y audit 
 | Shared language (Atomic / NN/g) | Endüstri yaygın | İletişim maliyeti düşer |
 | Token alias + semantic layer | DTCG + Contentful | Tema ve a11y rebind |
 | Governance / enforcer | NN/g 2026 | Adoption olmadan kit çöp |
-| Full Material-like elevation/color | Google ekosistemi | Kern scope dışı (bilinçli) |
-| Dev-only kit, docs yok | Sık fail pattern | Kern docs güçlü tutulmalı |
+| Full Material-like elevation/color | Google ekosistemi | Akana scope dışı (bilinçli) |
+| Dev-only kit, docs yok | Sık fail pattern | Akana docs güçlü tutulmalı |
 
 ---
 
-## 8. Kern çıkarımları (SQ6)
+## 8. Akana çıkarımları (SQ6)
 
 ### Doğrulanan (koru)
 - Monochrome + text-first hierarchy  
@@ -178,16 +178,16 @@ Component adoption count, time-to-ship, design/dev ticket reduction, a11y audit 
 ## 9. Bilgi haritası
 
 ```
-Atomic Design ──destekler──▶ Component hierarchy (Kern files)
-Token 3-layer ──destekler──▶ Dark mode + theming (Kern tokens.css)
+Atomic Design ──destekler──▶ Component hierarchy (Akana files)
+Token 3-layer ──destekler──▶ Dark mode + theming (Akana tokens.css)
 GOV.UK a11y   ──destekler──▶ Focus, contrast, progressive enhancement
 NN/g enforcer ──destekler──▶ AGENTS.md / CONTRIBUTING governance
-Material motion ──çelişir──▶ Kern minimal motion (bilinçli)
-Accent color systems ──çelişir──▶ Kern monochrome invariant
+Material motion ──çelişir──▶ Akana minimal motion (bilinçli)
+Accent color systems ──çelişir──▶ Akana monochrome invariant
 ```
 
 ### Bilgi boşlukları
-- Kern-scale için nicel adoption metriği yok (tek ürün/repo).
+- Akana-scale için nicel adoption metriği yok (tek ürün/repo).
 - Subagent dalga-1 tamamlandı (aşağıda merge).
 
 ---
@@ -213,10 +213,10 @@ uygulamada OFL metni + `FONTS.md` + unmodified bundle ile uyumlu.
 | Radix UI | 2020 | Code-first headless | A11y primitives |
 | shadcn/ui | 2023 | Copy-own registry | DX + Radix a11y |
 
-**Kern yakınlığı:** Atomic (mental model) + Radix/shadcn (ownership, a11y, minimal brand chrome)
+**Akana yakınlığı:** Atomic (mental model) + Radix/shadcn (ownership, a11y, minimal brand chrome)
 daha yakın; full Material/Fluent elevation/color stack değil.
 
-### SQ2 — Kern için compounding stack (subagent)
+### SQ2 — Akana için compounding stack (subagent)
 
 1. Monochrome + content-first  
 2. Accessibility-first  
@@ -232,7 +232,7 @@ daha yakın; full Material/Fluent elevation/color stack değil.
 | Inter | ✓ | Hayır (LICENSE) | Eski ad “Inter UI”; GF vs rsms |
 | Space Grotesk | ✓ | Hayır | Florian Karsten |
 | JetBrains Mono | ✓ | Hayır | Net commercial statement |
-| **IBM Plex** | ✓ | **“Plex”** | **Kern v0.3 seçimi** |
+| **IBM Plex** | ✓ | **“Plex”** | **Akana v0.3 seçimi** |
 | Source Sans/Code | ✓ | “Source” | Adobe |
 | Geist | ✓ | Hayır | Vercel |
 | Atkinson Hyperlegible | ✓ | Hayır | A11y; az weight |
@@ -265,7 +265,7 @@ Türetilmiş isimlerde “Plex” kullanılmıyor (unmodified bundle).
 
 - **Enablement > pure enforcement:** docs, copy-paste, live examples; GOV.UK contribution model.
 - **ROI aggregates** (yüzlerce % ROI, Lloyds vb.) çoğu **C** — primary bağlanmadıkça kullanma.
-- **Kern risk:** mini-Material ansiklopedisi olmak; v0.3+ iteratif ürün. Pareto: yüksek frekans pattern’ler önce.
+- **Akana risk:** mini-Material ansiklopedisi olmak; v0.3+ iteratif ürün. Pareto: yüksek frekans pattern’ler önce.
 
 #### Adoption nasıl tanımlanıyor? (Omlet / Curtis / leaders)
 
@@ -306,14 +306,14 @@ Türetilmiş isimlerde “Plex” kullanılmıyor (unmodified bundle).
 | Binary adoption ignored | V1’de premature analytics |
 | “Components a11y ⇒ product a11y” | GOV.UK: yanlış varsayım |
 
-#### Kern için SQ3 çıkarımları (küçük / offline / monochrome)
+#### Akana için SQ3 çıkarımları (küçük / offline / monochrome)
 
 1. **Binary adoption şimdilik yeterli:** `components/*.html` açılıyor mu, gallery link’leri var mı.  
 2. **Ölçülebilir “UX kalitesi” proxy’leri:** contrast table (TOKENS.md), focus-visible, `check_icons.js`, lint DESIGN.md, 0 console error.  
 3. **Detach analogu:** hardcoded hex/spacing = “detachment” — AGENTS kuralı + code review.  
 4. **Doğru kullanım:** monochrome state (weight/border) dokümante; alert/toggle örnekleri pattern.  
-5. **Enforcer:** CONTRIBUTING + AGENTS + agent skill (kern-design-system) — “3+ use case → system”.  
-6. **Aşırı metrik yok:** Omlet/Figma Library Analytics ölçeği Kern için overhead.
+5. **Enforcer:** CONTRIBUTING + AGENTS + agent skill (akana-design-system) — “3+ use case → system”.  
+6. **Aşırı metrik yok:** Omlet/Figma Library Analytics ölçeği Akana için overhead.
 
 ---
 
@@ -352,14 +352,14 @@ Style Dictionary (resmi): token’lar *platform-agnostic input*; CSS/iOS/Android
 
 | Durum | Öneri |
 |-------|--------|
-| Tek platform web, offline, zero-build (Kern) | **Pure CSS 3-layer** — yeterli |
+| Tek platform web, offline, zero-build (Akana) | **Pure CSS 3-layer** — yeterli |
 | Web + iOS + Android + Figma sync | JSON + Style Dictionary / Tokens Studio |
 | Multi-brand (N brand × 1 kit) | Semantic + selective component tokens + modes |
 | Tek tema, 5 component | Primitive-only bile yetebilir — semantic hâlâ a11y/tema için değerli |
 
 **Over-engineering riski (Reddit DS community + Contentful):** component-token şişmesi, “subtle-secondary-background-hover” grid patlaması. Contentful: *design systems are as much about not defining things*.
 
-#### Kern SQ4 kararı (doğrulandı)
+#### Akana SQ4 kararı (doğrulandı)
 
 | Karar | Gerekçe |
 |-------|---------|
@@ -419,7 +419,7 @@ v0.3 uygulaması dalga 2 ile **çelişmiyor**:
 
 - [x] Claim’ler birincil veya A/B kaynaklı  
 - [x] Font lisansları raw LICENSE ile doğrulandı  
-- [x] Çelişki belirtildi (Material motion/color vs Kern; SQ5 RFN vs Plex seçimi)  
-- [x] Kern çıkarımları mevcut kodla hizalı  
+- [x] Çelişki belirtildi (Material motion/color vs Akana; SQ5 RFN vs Plex seçimi)  
+- [x] Akana çıkarımları mevcut kodla hizalı  
 - [x] Dalga 2 SQ3/SQ4 parent sentezi eklendi  
 - [x] Dalga 2 subagent özetleri merge edildi

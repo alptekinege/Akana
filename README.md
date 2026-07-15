@@ -1,8 +1,12 @@
-# Kern
+# Akana
 
 A **monochrome, text-first** design system. Ink-on-paper, icon + text driven,
 **no accent color**, **no decorative images**. Fonts are bundled locally, so it
 runs fully offline — just open a file in a browser.
+
+**Ad:** *Akana* = **ak** + **ana** — berraklık / arılık ile kök / kaynak. Türk
+kültüründe “ana” (kaynak, ana hat) ve “ak” (aklık, sadelik) çağrışımları;
+arayüzün sade mürekkep-kâğıt diliyle bilinçli hizalı.
 
 > Hierarchy comes from typography, spacing, and 1px borders — not from color
 > or imagery.
@@ -18,7 +22,7 @@ runs fully offline — just open a file in a browser.
 ## Structure
 
 ```
-Kern/
+Akana/
   DESIGN.md          # formal token spec (machine-readable, linted)
   AGENTS.md          # how other agents consume / extend this system
   FONTS.md           # font licenses & attribution
@@ -31,7 +35,7 @@ Kern/
     fonts.css        # @font-face (local)
     tokens.css       # colors, type scale, spacing, radii, motion
     components.css   # shared component styles
-    icons.js         # inline SVG icon set + kern.icon() / kern.mount()
+    icons.js         # inline SVG icon set + akana.icon() / akana.mount()
   components/         # ONE simple component per file, standalone + runnable
   scripts/
     download_fonts.py  # re-bundle fonts if needed

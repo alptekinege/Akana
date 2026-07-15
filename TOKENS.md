@@ -1,11 +1,11 @@
-# Kern — Token Reference
+# Akana — Token Reference
 
 Monochrome by design. **No accent color.** The only colors are a neutral
 gray ramp. State is expressed through weight and border, never hue.
 
 ## Layer model (3-layer)
 
-Kern's tokens follow a primitive → semantic → component structure.
+Akana's tokens follow a primitive → semantic → component structure.
 Never reference a **primitive** directly in a component — use the **semantic** token.
 
 | Layer | Tokens | Role |

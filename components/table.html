@@ -3,30 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kern · Table</title>
+  <title>Akana · Table</title>
   <link rel="stylesheet" href="../assets/fonts.css">
   <link rel="stylesheet" href="../assets/tokens.css">
   <link rel="stylesheet" href="../assets/components.css">
 </head>
-<body class="kern">
-  <main class="k-demo">
-    <span class="k-label">Component</span>
+<body class="akana">
+  <main class="ak-demo">
+    <span class="ak-label">Component</span>
     <h1>Table</h1>
     <p class="lead">Data as text, not color. Sortable columns use <code>aria-sort</code> and a visible glyph. Hierarchy is type and the row divider — nothing else.</p>
 
-    <div class="k-table-wrap">
-      <table class="k-table" id="demo-table">
+    <div class="ak-table-wrap">
+      <table class="ak-table" id="demo-table">
         <caption>Recent items</caption>
         <thead>
           <tr>
             <th aria-sort="ascending" data-key="name" tabindex="0" role="columnheader">
-              Name <span class="k-sort" aria-hidden="true">↑</span>
+              Name <span class="ak-sort" aria-hidden="true">↑</span>
             </th>
             <th aria-sort="none" data-key="type" tabindex="0" role="columnheader">
-              Type <span class="k-sort" aria-hidden="true"></span>
+              Type <span class="ak-sort" aria-hidden="true"></span>
             </th>
             <th aria-sort="none" data-key="size" tabindex="0" role="columnheader">
-              Size <span class="k-sort" aria-hidden="true"></span>
+              Size <span class="ak-sort" aria-hidden="true"></span>
             </th>
           </tr>
         </thead>
@@ -69,10 +69,10 @@
         headCells.forEach(function (c) {
           if (c.dataset.key === key) {
             c.setAttribute('aria-sort', dir);
-            c.querySelector('.k-sort').textContent = glyphs[dir];
+            c.querySelector('.ak-sort').textContent = glyphs[dir];
           } else {
             c.setAttribute('aria-sort', 'none');
-            c.querySelector('.k-sort').textContent = '';
+            c.querySelector('.ak-sort').textContent = '';
           }
         });
       }

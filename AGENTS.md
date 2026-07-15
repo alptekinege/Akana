@@ -1,4 +1,4 @@
-# Kern — Agent Guide
+# Akana — Agent Guide
 
 A monochrome, text-first design system. Ink-on-paper, icon+text driven, **no
 accent color**, **no decorative images**. Fonts are bundled locally (offline).
@@ -21,12 +21,12 @@ Concretely:
    ```html
    <script src="../assets/icons.js"></script>
    ```
-3. Use `class="kern"` on `<body>` so component styles apply.
+3. Use `class="akana"` on `<body>` so component styles apply.
 4. Build with the tokens in `assets/tokens.css` — **never hardcode colors,
    spacing, or font sizes.** Use the `--gray-*` primitive ramp and the
    `--bg/--surface/--text/--border/--ink` semantic tokens. Type uses
    the fluid `--fs-*` `clamp()` scale; spacing uses `--space-*`.
-5. Add an inline icon with `<span class="k-icon" data-icon="search"></span>`.
+5. Add an inline icon with `<span class="ak-icon" data-icon="search"></span>`.
    Icons are 1.6px-stroke `currentColor` SVG; decorative ones are
    auto-hidden from screen readers — for an icon-only button, set
    `aria-label` on the button and leave the icon to inherit it.
@@ -37,7 +37,7 @@ Concretely:
 ## Folder layout
 
 ```
-Kern/
+Akana/
   |  DESIGN.md          # formal token spec (machine-readable) — edit tokens here
   |  AGENTS.md          # this file
   |  README.md          # project overview
@@ -51,7 +51,7 @@ Kern/
   |    fonts.css        # @font-face declarations
   |    tokens.css       # 3-layer tokens: primitive / semantic / component
   |    components.css   # shared component styles
-  |    icons.js         # inline SVG icon set + kern.icon()/kern.mount()
+  |    icons.js         # inline SVG icon set + akana.icon()/akana.mount()
   |  components/         # ONE simple component per file, standalone + runnable
   |    button.html
   |    card.html
