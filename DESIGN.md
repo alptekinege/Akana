@@ -1,19 +1,33 @@
 ---
-version: alpha
+version: 0.2.0
 name: Kern
 description: Monochrome, text-first minimalist design system. Ink-on-paper, icon+text driven, no accent color, bundled local fonts.
 colors:
-  bg: "#FFFFFF"
-  surface: "#FAFAFA"
-  surface-2: "#F2F2F2"
-  border: "#E4E4E4"
-  border-strong: "#CFCFCF"
-  ink: "#0A0A0A"
-  text: "#171717"
-  text-secondary: "#525252"
-  text-muted: "#8A8A8A"
-  inverse-bg: "#0A0A0A"
-  inverse-text: "#FAFAFA"
+  # --- Primitive gray ramp (theme-agnostic raw values) ---
+  gray-0: "#FFFFFF"
+  gray-50: "#FAFAFA"
+  gray-100: "#F2F2F2"
+  gray-200: "#E4E4E4"
+  gray-300: "#CFCFCF"
+  gray-400: "#A3A3A3"
+  gray-500: "#8A8A8A"
+  gray-600: "#525252"
+  gray-700: "#3D3D3D"
+  gray-800: "#1C1C1C"
+  gray-850: "#171717"
+  gray-950: "#0A0A0A"
+  # --- Semantic (light default; dark re-binds only these) ---
+  bg: "{colors.gray-0}"
+  surface: "{colors.gray-50}"
+  surface-2: "{colors.gray-100}"
+  border: "{colors.gray-200}"
+  border-strong: "{colors.gray-300}"
+  ink: "{colors.gray-950}"
+  text: "{colors.gray-850}"
+  text-secondary: "{colors.gray-600}"
+  text-muted: "{colors.gray-500}"
+  inverse-bg: "{colors.gray-950}"
+  inverse-text: "{colors.gray-0}"
 typography:
   h1:
     fontFamily: "Space Grotesk"
@@ -138,13 +152,33 @@ hover/focus affordance. There is no layering color.
 ## Shapes
 
 Restrained radii: 4px for compact controls, 8px for buttons/inputs, 12px for
-cards, 999px for pills/badges. Consistency over variety.
+Dark mode mirrors the ramp exactly — paper becomes ink, ink becomes paper.
+The **primitive gray ramp stays constant**; only the semantic layer is re-bound.
+
+## Accessibility
+
+Kern is monochrome, so contrast is earned with the gray ramp, not hue.
+
+- **Contrast (WCAG 2.1, measured sRGB):** body/secondary text ≥ 4.5:1
+  (AA); large display text ≥ 3:1; UI borders & focus rings ≥ 3:1 (AA
+  non-text). Verified: `--text` on `--bg` = **17.4:1** (light),
+  `--text-secondary` = **4.85:1**, `--border-strong` hover/focus = **3.14:1**.
+- **Focus ring (monochrome):** `:focus-visible { outline: 2px solid
+  var(--ink); outline-offset: 2px }` — no accent color needed; `--ink`
+  is always the highest-contrast tone.
+- **Icons:** decorative icons are `aria-hidden="true"` (auto-set by
+  `icons.js`); an **icon-only button** gets `aria-label` on the button.
+- **Reduced motion:** a global `@media (prefers-reduced-motion: reduce)`
+  block disables transforms/parallax but keeps the focus ring and opacity
+  transitions. View Transitions API is **not** used (decorative overhead).
 
 ## Components
 
 All components live as standalone, runnable files in `components/` (one per file),
 sharing `assets/tokens.css`, `assets/components.css`, `assets/fonts.css`, and
-`assets/icons.js`. Each is openable directly in a browser.
+`assets/icons.js`. Each is openable directly in a browser. Build with the
+**semantic** tokens (`--bg`, `--text`, `--ink`, `--border`…); never reference a
+`--gray-*` primitive directly in a component.
 
 - **button** — primary (ink), secondary (outline), ghost; sm/md/lg; inline icon
   or icon-only. `components/button.html`

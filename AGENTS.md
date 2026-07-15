@@ -23,56 +23,74 @@ Concretely:
    ```
 3. Use `class="kern"` on `<body>` so component styles apply.
 4. Build with the tokens in `assets/tokens.css` — **never hardcode colors,
-   spacing, or font sizes.** Use the `--ink`, `--text`, `--surface`,
-   `--border`, `--space-*`, `--fs-*` variables.
-5. Add an inline icon with `<span class="k-icon" data-icon="search"></span>`
-   (see `assets/icons.js` for names). Icons are 1px-stroke, `currentColor`.
+   spacing, or font sizes.** Use the `--gray-*` primitive ramp and the
+   `--bg/--surface/--text/--border/--ink` semantic tokens. Type uses
+   the fluid `--fs-*` `clamp()` scale; spacing uses `--space-*`.
+5. Add an inline icon with `<span class="k-icon" data-icon="search"></span>`.
+   Icons are 1.6px-stroke `currentColor` SVG; decorative ones are
+   auto-hidden from screen readers — for an icon-only button, set
+   `aria-label` on the button and leave the icon to inherit it.
 6. Keep it minimal: one component concept per file, real states
    (hover/focus/disabled/active), and `prefers-reduced-motion` respected
-   (handled globally).
+   (handled globally in tokens.css).
 
 ## Folder layout
 
 ```
 Kern/
-  DESIGN.md          # formal token spec (machine-readable) — edit tokens here
-  AGENTS.md          # this file
-  index.html         # gallery / showcase (theme toggle)
-  assets/
-    fonts/           # bundled .woff2 (offline, latin + latin-ext)
-    fonts.css        # @font-face declarations
-    tokens.css       # colors, type scale, spacing, radii, motion
-    components.css   # shared component styles
-    icons.js         # inline SVG icon set + kern.icon()/kern.mount()
-  components/         # ONE simple component per file, standalone + runnable
-    button.html
-    card.html
-    input.html
-    badge.html
-    nav.html
-  scripts/
-    download_fonts.py  # re-bundle fonts if needed
-```
+  |  DESIGN.md          # formal token spec (machine-readable) — edit tokens here
+  |  AGENTS.md          # this file
+  |  README.md          # project overview
+  |  CHANGELOG.md       # SemVer history (git tags mirror this)
+  |  CONTRIBUTING.md    # how to add components / extend tokens
+  |  TOKENS.md          # token reference (values + contrast table)
+  |  index.html         # gallery / showcase (theme toggle, FOUC-free)
+  |  about.html         # the system's parts
+  |  assets/
+  |    fonts/           # bundled .woff2 (offline, latin + latin-ext)
+  |    fonts.css        # @font-face declarations
+  |    tokens.css       # 3-layer tokens: primitive / semantic / component
+  |    components.css   # shared component styles
+  |    icons.js         # inline SVG icon set + kern.icon()/kern.mount()
+  |  components/         # ONE simple component per file, standalone + runnable
+  |    button.html
+  |    card.html
+  |    input.html
+  |    badge.html
+  |    nav.html
+  |  scripts/
+  |    download_fonts.py  # re-bundle fonts if needed
+  |    check_icons.js     # verify every used icon exists
+  ```
 
-## Design constraints (non-negotiable)
+  ## Design constraints (non-negotiable)
 
-- **Monochrome only.** No accent color, no gradient, no tinted surface.
-  State = weight + border, not hue.
-- **Text-first.** Hierarchy from type and spacing. Icons assist, never decorate.
-- **No images.** Zero `<img>` for decoration; icons are inline SVG only.
-- **Offline fonts.** Do not add Google Fonts `<link>` tags. Add/replace woff2 in
-  `assets/fonts/` and regenerate `assets/fonts.css` via `scripts/download_fonts.py`.
-- **Tokens are single-source.** Extend `tokens.css` / `DESIGN.md` rather than
-  baking values into a component.
+  - **Monochrome only.** No accent color, no gradient, no tinted surface.
+    State = weight + border, not hue.
+  - **Text-first.** Hierarchy from type and spacing. Icons assist, never decorate.
+  - **No images.** Zero `<img>` for decoration; icons are inline SVG only.
+  - **Offline fonts.** Do not add Google Fonts `<link>` tags. Add/replace woff2 in
+    `assets/fonts/` and regenerate `assets/fonts.css` via `scripts/download_fonts.py`.
+  - **Tokens are single-source, 3-layer.** `tokens.css` is the only source:
+    - **Primitive** (`--gray-0…950`, font families, raw scale) — meaning-less,
+      theme-agnostic. Never reference a primitive directly in a component.
+    - **Semantic** (`--bg`, `--surface`, `--text`, `--ink`, `--border`…) — intent.
+      Components reference THESE. Dark mode re-binds only this layer.
+    - **Component** (`--button-bg` etc.) — added per-component only as needed.
+  - **Fluid type.** Use the `--fs-*` `clamp()` scale; do not hardcode font-size.
+  - **Accessibility built-in.** Focus ring is `2px solid var(--ink)` (no accent).
+    Decorative icons are `aria-hidden`; icon-only buttons need `aria-label`.
+    `prefers-reduced-motion` is honored globally.
 
-## Theming
+  ## Theming
 
-Light is default. Dark follows `prefers-color-scheme` and can be forced with
-`<html data-theme="dark">` or `data-theme="light"`. The gallery's toggle
-demonstrates the pattern.
+  Light is default. Dark follows `prefers-color-scheme` and can be forced with
+  `<html data-theme="dark">` or `data-theme="light"`. `index.html`/`about.html`
+  include a FOUC-free inline `<head>` script that reapplies a saved theme from
+  `localStorage` before first paint.
 
-## Verifying a component
+  ## Verifying a component
 
-Open the file directly in a browser (no server needed — all assets are relative).
-Check: renders in both light and dark, focus-visible outlines present, no console
-errors, icons mounted.
+  Open the file directly in a browser (no server needed — all assets are relative).
+  Check: renders in both light and dark, focus-visible outlines present, no console
+  errors, icons mounted, and `prefers-reduced-motion` disables transforms.

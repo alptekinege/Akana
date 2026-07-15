@@ -4,6 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kern — About the system</title>
+  <meta name="color-scheme" content="light dark">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("kern-theme");
+        if (t === "light" || t === "dark") {
+          document.documentElement.setAttribute("data-theme", t);
+        }
+      } catch (e) {}
+    })();
+  </script>
   <link rel="stylesheet" href="assets/fonts.css">
   <link rel="stylesheet" href="assets/tokens.css">
   <link rel="stylesheet" href="assets/components.css">
@@ -57,9 +68,14 @@
         <span class="k-mark"><span class="k-icon" data-icon="grid" data-size="18"></span></span>
         Kern
       </a>
-      <a class="k-btn k-btn--secondary k-btn--sm k-back" href="index.html">
-        <span class="k-icon" data-icon="arrow-left"></span> Gallery
-      </a>
+      <span class="k-row" style="gap: var(--space-2);">
+        <a class="k-btn k-btn--secondary k-btn--sm k-back" href="TOKENS.md">
+          <span class="k-icon" data-icon="tag"></span> Tokens
+        </a>
+        <a class="k-btn k-btn--secondary k-btn--sm k-back" href="index.html">
+          <span class="k-icon" data-icon="arrow-left"></span> Gallery
+        </a>
+      </span>
     </header>
 
     <span class="k-label">About</span>

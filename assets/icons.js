@@ -54,6 +54,13 @@
       if (el.dataset.kernIconDone) continue;
       var s = parseInt(el.getAttribute("data-size"), 10) || 20;
       el.classList.add("k-icon");
+      // Decorative by default. If the caller set aria-label (icon-only
+      // button), leave it exposed; otherwise hide from screen readers.
+      if (el.getAttribute("aria-label")) {
+        el.removeAttribute("aria-hidden");
+      } else {
+        el.setAttribute("aria-hidden", "true");
+      }
       el.innerHTML = svg(el.getAttribute("data-icon"), s);
       el.dataset.kernIconDone = "1";
     }

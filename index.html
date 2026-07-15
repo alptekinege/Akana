@@ -4,6 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kern — Monochrome Design System</title>
+  <meta name="color-scheme" content="light dark">
+  <script>
+    /* FOUC-free theming: apply saved/system theme before first paint. */
+    (function () {
+      try {
+        var t = localStorage.getItem("kern-theme"); /* 'light' | 'dark' | null */
+        if (t === "light" || t === "dark") {
+          document.documentElement.setAttribute("data-theme", t);
+        }
+      } catch (e) {}
+    })();
+  </script>
   <link rel="stylesheet" href="assets/fonts.css">
   <link rel="stylesheet" href="assets/tokens.css">
   <link rel="stylesheet" href="assets/components.css">
@@ -132,6 +144,7 @@
           || (!document.documentElement.getAttribute('data-theme')
               && window.matchMedia('(prefers-color-scheme: dark)').matches);
         saved = isDark ? 'light' : 'dark';
+        try { localStorage.setItem('kern-theme', saved); } catch (e) {}
         apply(saved);
       });
       apply(saved);
