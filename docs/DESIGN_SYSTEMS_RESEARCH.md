@@ -187,9 +187,60 @@ Accent color systems ──çelişir──▶ Kern monochrome invariant
 ```
 
 ### Bilgi boşlukları
-- Kern-scale için nicel adoption metriği yok (tek ürün/repo).  
-- Font “netlik” için kullanıcı tercihi: sadece lisans dosyası mı, yoksa IBM Plex geçişi mi?  
-- Subagent dalga-1 (SQ1/SQ2/SQ5) arka planda; bu rapor birincil kaynaklarla tamamlandı — subagent özetleri gelirse eklenir.
+- Kern-scale için nicel adoption metriği yok (tek ürün/repo).
+- Subagent dalga-1 tamamlandı (aşağıda merge).
+
+---
+
+## 11. Appendix — Subagent dalga-1 merge (SQ1 / SQ2 / SQ5)
+
+Aşağısı paralel leaf subagent özetlerinden sentezlenmiştir; parent birincil kaynaklarla
+çapraz doğrulandı. **Çelişki notu (SQ5):** subagent varsayılan önerisi “eski trio’yu
+tut + OFL dosyaları ekle” (RFN yok); kullanıcı seçimi **IBM Plex** (RFN “Plex”) oldu —
+uygulamada OFL metni + `FONTS.md` + unmodified bundle ile uyumlu.
+
+### SQ1 — tarih tablosu (detay)
+
+| Sistem | Yıl | Yaklaşım | Sürücü |
+|--------|-----|----------|--------|
+| Atlassian Design Guidelines | 2012 | Dual → code-coupled | Multi-product scale |
+| Atomic Design | 2013 | Methodology + Pattern Lab | Systems not pages |
+| Adobe Spectrum | ~2013 | Dual (CSS/React/WC) | 100+ app cohesion |
+| Material Design | 2014 | Design-first → multi-platform code | Google ecosystem |
+| Carbon (IBM) | 2015 | Dual + open-source | Enterprise + a11y |
+| Fluent | 2017 | Dual (WinUI / Fluent UI) | Windows + Office |
+| Shopify Polaris | 2017 | Dual React admin | Merchant/partner UX |
+| Radix UI | 2020 | Code-first headless | A11y primitives |
+| shadcn/ui | 2023 | Copy-own registry | DX + Radix a11y |
+
+**Kern yakınlığı:** Atomic (mental model) + Radix/shadcn (ownership, a11y, minimal brand chrome)
+daha yakın; full Material/Fluent elevation/color stack değil.
+
+### SQ2 — Kern için compounding stack (subagent)
+
+1. Monochrome + content-first  
+2. Accessibility-first  
+3. Token-first 3-layer CSS (DTCG *aligned*, pipeline yok)  
+4. Lean language + small kit (DESIGN.md / AGENTS.md + one-file components)  
+
+**Defer:** multi-brand theming, full DTCG transform, heavy component-token catalogs.
+
+### SQ5 — lisans matrisi (ek)
+
+| Font | OFL 1.1 | RFN | Not |
+|------|---------|-----|-----|
+| Inter | ✓ | Hayır (LICENSE) | Eski ad “Inter UI”; GF vs rsms |
+| Space Grotesk | ✓ | Hayır | Florian Karsten |
+| JetBrains Mono | ✓ | Hayır | Net commercial statement |
+| **IBM Plex** | ✓ | **“Plex”** | **Kern v0.3 seçimi** |
+| Source Sans/Code | ✓ | “Source” | Adobe |
+| Geist | ✓ | Hayır | Vercel |
+| Atkinson Hyperlegible | ✓ | Hayır | A11y; az weight |
+| Public Sans | ✓ | Hayır | Unmaintained |
+| Noto Sans | ✓ (modern) | — | Eski Apache → OFL |
+
+**Uygulama (yapıldı):** IBM Plex Sans + Mono, `OFL-IBM-Plex.txt`, `FONTS.md`, latin/latin-ext woff2.
+Türetilmiş isimlerde “Plex” kullanılmıyor (unmodified bundle).
 
 ---
 
