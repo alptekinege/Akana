@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Akana — Patterns</title>
+  <meta name="color-scheme" content="light dark">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("akana-theme");
+        if (t === "light" || t === "dark") {
+          document.documentElement.setAttribute("data-theme", t);
+        }
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="stylesheet" href="assets/fonts.css">
+  <link rel="stylesheet" href="assets/tokens.css">
+  <link rel="stylesheet" href="assets/components.css">
+  <style>
+    .ak-header {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: var(--space-4); padding-bottom: var(--space-8);
+      border-bottom: var(--border-w) solid var(--border); margin-bottom: var(--space-12);
+    }
+    .ak-brand {
+      display: inline-flex; align-items: center; gap: var(--space-3);
+      font-family: var(--font-display); font-weight: 700; font-size: var(--fs-xl);
+      letter-spacing: var(--tracking-tight); color: var(--ink); text-decoration: none;
+    }
+    .ak-brand .ak-mark {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 34px; height: 34px; border: var(--border-w) solid var(--ink); border-radius: var(--radius-md);
+    }
+  </style>
+</head>
+<body class="akana">
+  <main class="ak-demo">
+    <header class="ak-header">
+      <a class="ak-brand" href="index.html">
+        <span class="ak-mark"><span class="ak-icon" data-icon="grid" data-size="18"></span></span>
+        Akana
+      </a>
+      <span class="ak-row" style="gap: var(--space-2);">
+        <a class="ak-btn ak-btn--secondary ak-btn--sm" href="index.html">
+          <span class="ak-icon" data-icon="arrow-left"></span> Gallery
+        </a>
+        <button class="ak-btn ak-btn--secondary ak-btn--sm" id="theme-btn" type="button" aria-pressed="false">
+          <span class="ak-icon" data-icon="moon"></span> Dark
+        </button>
+      </span>
+    </header>
+
+    <span class="ak-label">Patterns</span>
+    <h1>Components in context.</h1>
+    <p class="lead">Small compositions using only Akana tokens and components — wayfinding, a form, a list shell, and an empty surface. No accent color.</p>
+
+    <!-- Pattern: wayfinding + table list -->
+    <section class="ak-pattern-block">
+      <h2 class="ak-pattern-block__title">List · breadcrumb + table + pagination</h2>
+      <nav aria-label="Breadcrumb" style="margin-bottom: var(--space-5);">
+        <ol class="ak-breadcrumb">
+          <li class="ak-breadcrumb__item">
+            <a href="index.html">Home</a>
+            <span class="ak-breadcrumb__sep ak-icon" data-icon="chevron-right" data-size="14"></span>
+          </li>
+          <li class="ak-breadcrumb__item">
+            <a href="#">Workspace</a>
+            <span class="ak-breadcrumb__sep ak-icon" data-icon="chevron-right" data-size="14"></span>
+          </li>
+          <li class="ak-breadcrumb__item" aria-current="page">Projects</li>
+        </ol>
+      </nav>
+      <div class="ak-row" style="justify-content: space-between; margin-bottom: var(--space-4);">
+        <span class="ak-label" style="border:0;margin:0;padding:0;">12 projects</span>
+        <button type="button" class="ak-btn ak-btn--sm">
+          <span class="ak-icon" data-icon="plus" data-size="16"></span> New
+        </button>
+      </div>
+      <div class="ak-table-wrap">
+        <table class="ak-table">
+          <caption class="visually-hidden" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);">Projects</caption>
+          <thead>
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Status</th>
+              <th scope="col">Updated</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Akana gallery</td>
+              <td><span class="ak-badge">Active</span></td>
+              <td style="font-family:var(--font-mono);font-size:var(--fs-xs);color:var(--text-muted);">Today</td>
+            </tr>
+            <tr>
+              <td>Invoice export</td>
+              <td><span class="ak-badge ak-badge--solid">Live</span></td>
+              <td style="font-family:var(--font-mono);font-size:var(--fs-xs);color:var(--text-muted);">Yesterday</td>
+            </tr>
+            <tr>
+              <td>Archive 2024</td>
+              <td><span class="ak-badge">Paused</span></td>
+              <td style="font-family:var(--font-mono);font-size:var(--fs-xs);color:var(--text-muted);">Mon</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <nav aria-label="Pagination" style="margin-top: var(--space-5);">
+        <ul class="ak-pagination">
+          <li><button type="button" class="ak-pagination__btn" aria-label="Previous" aria-disabled="true"><span class="ak-icon" data-icon="arrow-left" data-size="16"></span></button></li>
+          <li><button type="button" class="ak-pagination__btn" aria-current="page">1</button></li>
+          <li><button type="button" class="ak-pagination__btn">2</button></li>
+          <li><button type="button" class="ak-pagination__btn" aria-label="Next"><span class="ak-icon" data-icon="arrow-right" data-size="16"></span></button></li>
+        </ul>
+      </nav>
+    </section>
+
+    <!-- Pattern: form -->
+    <section class="ak-pattern-block">
+      <h2 class="ak-pattern-block__title">Form · fields + choices + alert</h2>
+      <div class="ak-alert" role="status" style="margin-bottom: var(--space-6);">
+        <span class="ak-alert__icon ak-icon" data-icon="info"></span>
+        <div class="ak-alert__body">
+          <p class="ak-alert__title">Review before save</p>
+          <p class="ak-alert__text">All fields use semantic tokens. Errors stay monochrome.</p>
+        </div>
+      </div>
+      <div class="ak-stack" style="max-width: 420px; gap: var(--space-5);">
+        <div class="ak-field">
+          <label class="ak-field__label" for="p-name">Name</label>
+          <div class="ak-input">
+            <span class="ak-icon" data-icon="user"></span>
+            <input id="p-name" type="text" placeholder="Project name" autocomplete="off">
+          </div>
+        </div>
+        <div class="ak-field">
+          <label class="ak-field__label" for="p-region">Region</label>
+          <div class="ak-select-wrap">
+            <select id="p-region" class="ak-select">
+              <option>Europe</option>
+              <option selected>Middle East</option>
+              <option>Americas</option>
+            </select>
+            <span class="ak-select__chevron ak-icon" data-icon="chevron-down" data-size="18"></span>
+          </div>
+        </div>
+        <div class="ak-choice-group">
+          <label class="ak-choice">
+            <input type="checkbox" checked>
+            <span class="ak-choice__box"><span class="ak-icon" data-icon="check" data-size="12"></span></span>
+            <span class="ak-choice__text">Notify on deploy</span>
+          </label>
+        </div>
+        <div class="ak-row">
+          <button type="button" class="ak-btn">Save</button>
+          <button type="button" class="ak-btn ak-btn--ghost">Cancel</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pattern: empty -->
+    <section class="ak-pattern-block">
+      <h2 class="ak-pattern-block__title">Empty · first-run surface</h2>
+      <div class="ak-empty" style="max-width: none;">
+        <span class="ak-empty__icon">
+          <span class="ak-icon" data-icon="search" data-size="22"></span>
+        </span>
+        <h2 class="ak-empty__title">No results</h2>
+        <p class="ak-empty__body">Try a different query, or clear filters to see everything in this workspace.</p>
+        <div class="ak-empty__actions">
+          <button type="button" class="ak-btn ak-btn--secondary">Clear filters</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pattern: FAQ accordion -->
+    <section class="ak-pattern-block">
+      <h2 class="ak-pattern-block__title">Help · accordion</h2>
+      <div class="ak-accordion" id="pat-acc">
+        <div class="ak-accordion__item">
+          <h3 style="margin:0;font-size:inherit;">
+            <button type="button" class="ak-accordion__trigger" id="pt1" aria-expanded="false" aria-controls="pp1">
+              How do I add a component?
+              <span class="ak-accordion__chevron ak-icon" data-icon="chevron-down" data-size="18"></span>
+            </button>
+          </h3>
+          <div class="ak-accordion__panel" id="pp1" role="region" aria-labelledby="pt1" hidden>
+            One file under <code>components/</code>, link shared assets, use tokens only. See AGENTS.md.
+          </div>
+        </div>
+        <div class="ak-accordion__item">
+          <h3 style="margin:0;font-size:inherit;">
+            <button type="button" class="ak-accordion__trigger" id="pt2" aria-expanded="false" aria-controls="pp2">
+              Why monochrome?
+              <span class="ak-accordion__chevron ak-icon" data-icon="chevron-down" data-size="18"></span>
+            </button>
+          </h3>
+          <div class="ak-accordion__panel" id="pp2" role="region" aria-labelledby="pt2" hidden>
+            Hierarchy from type and border keeps the system calm and themeable without brand hue lock-in.
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="assets/icons.js"></script>
+  <script>
+    (function () {
+      var btn = document.getElementById('theme-btn');
+      var icon = btn.querySelector('.ak-icon');
+      function apply(theme) {
+        if (theme) document.documentElement.setAttribute('data-theme', theme);
+        else document.documentElement.removeAttribute('data-theme');
+        var dark = theme ? theme === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+        icon.setAttribute('data-icon', dark ? 'sun' : 'moon');
+        btn.childNodes[btn.childNodes.length - 1].textContent = dark ? ' Light ' : ' Dark ';
+        btn.setAttribute('aria-pressed', dark ? 'true' : 'false');
+      }
+      btn.addEventListener('click', function () {
+        var isDark = document.documentElement.getAttribute('data-theme') === 'dark'
+          || (!document.documentElement.getAttribute('data-theme')
+              && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        var saved = isDark ? 'light' : 'dark';
+        try { localStorage.setItem('akana-theme', saved); } catch (e) {}
+        apply(saved);
+      });
+      apply(null);
+
+      document.getElementById('pat-acc').querySelectorAll('.ak-accordion__trigger').forEach(function (b) {
+        b.addEventListener('click', function () {
+          var open = b.getAttribute('aria-expanded') === 'true';
+          var panel = document.getElementById(b.getAttribute('aria-controls'));
+          b.setAttribute('aria-expanded', open ? 'false' : 'true');
+          if (open) panel.setAttribute('hidden', '');
+          else panel.removeAttribute('hidden');
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

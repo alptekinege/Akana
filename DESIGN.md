@@ -1,5 +1,5 @@
 ---
-version: 0.4.0
+version: 0.5.0
 name: Akana
 description: Monochrome, text-first design system (Ak + Ana). Ink-on-paper, no accent color, bundled IBM Plex (SIL OFL 1.1).
 colors:
@@ -206,6 +206,11 @@ sharing `assets/tokens.css`, `assets/components.css`, `assets/fonts.css`, and
   `components/tabs.html`
 - **alert** — feedback without hue (default / strong rail / solid invert).
   `components/alert.html`
+- **accordion** — disclosure; chevron + panel. `components/accordion.html`
+- **breadcrumb** — wayfinding trail; current = ink weight. `components/breadcrumb.html`
+- **pagination** — list page nav; current = ink border. `components/pagination.html`
+- **empty-state** — empty surface; icon + copy + actions. `components/empty-state.html`
+- **patterns** — composed showcase page. `patterns.html`
 
 Icons: mount with `<span class="ak-icon" data-icon="name"></span>` or call
 `akana.icon('name')`. Available names are returned by `akana.icons()`.

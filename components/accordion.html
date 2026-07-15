@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Akana · Accordion</title>
+  <link rel="stylesheet" href="../assets/fonts.css">
+  <link rel="stylesheet" href="../assets/tokens.css">
+  <link rel="stylesheet" href="../assets/components.css">
+</head>
+<body class="akana">
+  <main class="ak-demo">
+    <span class="ak-label">Component</span>
+    <h1>Accordion</h1>
+    <p class="lead">Disclosure blocks. Open state is chevron rotation + expanded panel — no hue. Keyboard: Enter/Space toggles; each trigger is a real button.</p>
+
+    <div class="ak-accordion" style="max-width: 520px;" id="demo-acc">
+      <div class="ak-accordion__item">
+        <h2 style="margin:0;font-size:inherit;font-weight:inherit;">
+          <button type="button" class="ak-accordion__trigger" id="acc-t1" aria-expanded="true" aria-controls="acc-p1">
+            What is Akana?
+            <span class="ak-accordion__chevron ak-icon" data-icon="chevron-down" data-size="18"></span>
+          </button>
+        </h2>
+        <div class="ak-accordion__panel" id="acc-p1" role="region" aria-labelledby="acc-t1">
+          A monochrome, text-first design system. Hierarchy comes from type, spacing, and borders — not accent color.
+        </div>
+      </div>
+      <div class="ak-accordion__item">
+        <h2 style="margin:0;font-size:inherit;font-weight:inherit;">
+          <button type="button" class="ak-accordion__trigger" id="acc-t2" aria-expanded="false" aria-controls="acc-p2">
+            Offline fonts?
+            <span class="ak-accordion__chevron ak-icon" data-icon="chevron-down" data-size="18"></span>
+          </button>
+        </h2>
+        <div class="ak-accordion__panel" id="acc-p2" role="region" aria-labelledby="acc-t2" hidden>
+          IBM Plex Sans and Mono ship as local woff2 under <code>assets/fonts/</code> with SIL OFL 1.1. No CDN.
+        </div>
+      </div>
+      <div class="ak-accordion__item">
+        <h2 style="margin:0;font-size:inherit;font-weight:inherit;">
+          <button type="button" class="ak-accordion__trigger" id="acc-t3" aria-expanded="false" aria-controls="acc-p3">
+            Multi-open?
+            <span class="ak-accordion__chevron ak-icon" data-icon="chevron-down" data-size="18"></span>
+          </button>
+        </h2>
+        <div class="ak-accordion__panel" id="acc-p3" role="region" aria-labelledby="acc-t3" hidden>
+          This demo allows multiple panels open. For exclusive mode, close siblings when one opens.
+        </div>
+      </div>
+    </div>
+  </main>
+  <script src="../assets/icons.js"></script>
+  <script>
+    (function () {
+      var root = document.getElementById('demo-acc');
+      root.querySelectorAll('.ak-accordion__trigger').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var open = btn.getAttribute('aria-expanded') === 'true';
+          var panel = document.getElementById(btn.getAttribute('aria-controls'));
+          btn.setAttribute('aria-expanded', open ? 'false' : 'true');
+          if (open) panel.setAttribute('hidden', '');
+          else panel.removeAttribute('hidden');
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

@@ -6,6 +6,14 @@ All notable changes to Akana are documented here. The format is based on
 
 ## [Unreleased]
 
+## [0.5.0] - 2026-07-15
+
+### Added
+- **Pattern components:** accordion, breadcrumb, pagination, empty-state
+  (standalone HTML, monochrome state via weight/border).
+- **`patterns.html`** — composed showcase: list, form, empty, help accordion.
+- Gallery + About links for all new surfaces.
+
 ## [0.4.0] - 2026-07-15
 
 ### Changed

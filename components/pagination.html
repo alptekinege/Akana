@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Akana · Pagination</title>
+  <link rel="stylesheet" href="../assets/fonts.css">
+  <link rel="stylesheet" href="../assets/tokens.css">
+  <link rel="stylesheet" href="../assets/components.css">
+</head>
+<body class="akana">
+  <main class="ak-demo">
+    <span class="ak-label">Component</span>
+    <h1>Pagination</h1>
+    <p class="lead">List navigation. Current page uses an ink border — not a filled accent. Disabled prev/next stay in the flow with reduced opacity.</p>
+
+    <nav aria-label="Pagination" style="max-width: 560px;">
+      <ul class="ak-pagination" id="demo-pag">
+        <li>
+          <button type="button" class="ak-pagination__btn" aria-label="Previous page" aria-disabled="true" data-page="prev">
+            <span class="ak-icon" data-icon="arrow-left" data-size="16"></span>
+          </button>
+        </li>
+        <li><button type="button" class="ak-pagination__btn" aria-current="page" data-page="1">1</button></li>
+        <li><button type="button" class="ak-pagination__btn" data-page="2">2</button></li>
+        <li><button type="button" class="ak-pagination__btn" data-page="3">3</button></li>
+        <li><span class="ak-pagination__ellipsis" aria-hidden="true">…</span></li>
+        <li><button type="button" class="ak-pagination__btn" data-page="12">12</button></li>
+        <li>
+          <button type="button" class="ak-pagination__btn" aria-label="Next page" data-page="next">
+            <span class="ak-icon" data-icon="arrow-right" data-size="16"></span>
+          </button>
+        </li>
+      </ul>
+    </nav>
+    <p class="ak-field__help" id="pag-status" style="margin-top: var(--space-4);">Page 1 of 12</p>
+  </main>
+  <script src="../assets/icons.js"></script>
+  <script>
+    (function () {
+      var total = 12;
+      var page = 1;
+      var list = document.getElementById('demo-pag');
+      var status = document.getElementById('pag-status');
+      function render() {
+        status.textContent = 'Page ' + page + ' of ' + total;
+        list.querySelectorAll('[data-page]').forEach(function (btn) {
+          var p = btn.getAttribute('data-page');
+          if (p === 'prev') {
+            btn.setAttribute('aria-disabled', page <= 1 ? 'true' : 'false');
+            return;
+          }
+          if (p === 'next') {
+            btn.setAttribute('aria-disabled', page >= total ? 'true' : 'false');
+            return;
+          }
+          var n = parseInt(p, 10);
+          if (n === page) btn.setAttribute('aria-current', 'page');
+          else btn.removeAttribute('aria-current');
+        });
+      }
+      list.addEventListener('click', function (e) {
+        var btn = e.target.closest('[data-page]');
+        if (!btn || btn.getAttribute('aria-disabled') === 'true') return;
+        var p = btn.getAttribute('data-page');
+        if (p === 'prev') page = Math.max(1, page - 1);
+        else if (p === 'next') page = Math.min(total, page + 1);
+        else page = parseInt(p, 10);
+        render();
+      });
+      render();
+    })();
+  </script>
+</body>
+</html>

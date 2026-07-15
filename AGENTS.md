@@ -67,6 +67,10 @@ Akana/
   |    textarea.html
   |    tabs.html
   |    alert.html
+  |    accordion.html
+  |    breadcrumb.html
+  |    pagination.html
+  |    empty-state.html
   |  scripts/
   |    download_fonts.py  # re-bundle fonts if needed
   |    check_icons.js     # verify every used icon exists

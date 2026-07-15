@@ -17,7 +17,7 @@ arayüzün sade mürekkep-kâğıt diliyle bilinçli hizalı.
   (labels/meta). SIL OFL 1.1, single steward, latin + latin-ext. See `FONTS.md`.
 - **A monochrome token set** — single ink ramp, neutral surfaces, light + dark.
 - **An inline SVG icon set** (no image files) — `assets/icons.js`.
-- **14 standalone components**, one per file in `components/`, each runnable alone.
+- **18 standalone components**, one per file in `components/`, each runnable alone.
 
 ## Structure
 
@@ -28,6 +28,7 @@ Akana/
   FONTS.md           # font licenses & attribution
   README.md          # this file
   index.html         # gallery / showcase (theme toggle)
+  patterns.html      # components in context
   about.html         # the system's parts, explained
   docs/              # research notes
   assets/
